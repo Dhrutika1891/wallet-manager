@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 
 import { StoreContext } from '.'
-import { TStoreContext } from './types'
 
 const withStore = (WrappedComponent: React.ComponentType<TStoreContext>) =>
   class WithStore extends PureComponent {

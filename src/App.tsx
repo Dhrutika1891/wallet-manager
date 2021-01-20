@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from "react";
 
-import { StoreProvider } from './context/StoreContext'
-import { Home } from './pages/Home'
+import { StoreProvider } from "./context/StoreContext";
+import Home from "./pages/Home";
 
 class App extends PureComponent {
   public render(): JSX.Element {
@@ -9,10 +9,8 @@ class App extends PureComponent {
       <StoreProvider>
         <Home />
       </StoreProvider>
-    )
+    );
   }
 }
 
-export {
-  App
-}
+export { App };
