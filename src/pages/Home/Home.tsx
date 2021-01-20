@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import _ from "lodash";
 
 import Heading from "../../components/Heading";
@@ -27,7 +27,6 @@ const Home = ({ store }: TStoreContext) => {
         .value(),
     [store.data]
   );
-  console.log(groupByCurrency);
   return (
     <div className="home">
       <Heading heading="Wallet Manager" />
@@ -37,15 +36,15 @@ const Home = ({ store }: TStoreContext) => {
       <Checkbox isGroupBy={isGroupBy} setIsGroupBy={setIsGroupBy} />
 
       {isGroupBy ? (
-        groupByCurrency.map((item) => {
+        groupByCurrency.map((item, index) => {
           return (
-            <>
+            <Fragment key={index}>
               {item.currency} - {item.balance}
               <TransactionList
                 // @ts-ignore
                 transactions={item.transaction as Transaction[]}
               />
-            </>
+            </Fragment>
           );
         })
       ) : (
